@@ -1,48 +1,33 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <title>W5E</title>
-    <link rel="icon" href="http://w5e.me/blog/wp-content/uploads/cropped-w5e_logo_3.0-32x32.png" sizes="32x32" />
-    <link rel="icon" href="http://w5e.me/blog/wp-content/uploads/cropped-w5e_logo_3.0-192x192.png" sizes="192x192" />
-    <link rel="apple-touch-icon-precomposed" href="http://w5e.me/blog/wp-content/uploads/cropped-w5e_logo_3.0-180x180.png" />
-    <meta name="msapplication-TileImage" content="http://w5e.me/blog/wp-content/uploads/cropped-w5e_logo_3.0-270x270.png" />
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="w5e.me">
 
-    <!--http://www.html5rocks.com/en/mobile/mobifying/-->
-    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1,target-densitydpi=device-dpi"
-    />
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="w5e">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-    <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="format-detection" content="telephone=no">
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="favicon.png"/>
 
-    <!-- force webkit on 360 -->
-    <meta name="renderer" content="webkit" />
-    <meta name="force-rendering" content="webkit" />
-    <!-- force edge on IE -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="msapplication-tap-highlight" content="no">
-
-    <!-- force full screen on some browser -->
-    <meta name="full-screen" content="yes" />
-    <meta name="x5-fullscreen" content="true" />
-    <meta name="360-fullscreen" content="true" />
-
-    <!-- force screen orientation on some browser -->
-    <meta name="screen-orientation" content="" />
-    <meta name="x5-orientation" content="">
-
-    <!--fix fireball/issues/3568 -->
-    <!--<meta name="browsermode" content="application">-->
-    <meta name="x5-page-mode" content="app">
+  <title>w5e</title>
+  <link rel="manifest" href="manifest.json">
 </head>
-
-<body style="margin:0; padding:0;">
-    <canvas id="w5e" style="width:100%;height:100%;display:block;margin:0; padding:0;"></canvas>
-    <script src="libs/cocos2d.js" charset="UTF-8"></script>
-    <script src="src/w5e.js" charset="UTF-8"></script>
+<body>
+  <!-- This script installs service_worker.js to provide PWA functionality to
+       application. For more information, see:
+       https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('flutter_service_worker.js');
+      });
+    }
+  </script>
+  <script src="main.dart.js" type="application/javascript"></script>
 </body>
-
 </html>
