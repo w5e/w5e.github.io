@@ -3,19 +3,20 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "9a988fff971a1066d76fcafd10acbe0d",
+  "assets/AssetManifest.json": "66f22e5414b0e25c8a2e27cc23284dc3",
 "assets/assets/images/w5e_64x64.png": "b831d7d6c4f56196d7ea7a07850505a0",
+"assets/assets/markdown/books/code.md": "914f32391fa95b8a02d4a2ba08d7dec2",
 "assets/assets/menus/links.json": "c81d3c5518cb196137eb25990b04d807",
 "assets/assets/menus/main_menu.json": "282fc5d397aa5e2831a7f22c15916537",
 "assets/FontManifest.json": "580ff1a5d08679ded8fcf5c6848cece7",
 "assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16",
-"assets/NOTICES": "760138a4d8b35da28b053f607a2c38cb",
+"assets/NOTICES": "0d7cc4844cf3840ebb0fb19def9079fe",
 "favicon.png": "b831d7d6c4f56196d7ea7a07850505a0",
 "icons/Icon-192.png": "76415aee32fffe670f6166af526d45b8",
 "icons/Icon-512.png": "42711a96734ab173a5653b87d45c814f",
 "index.html": "711dc84571385f9de79a9eac67ca7753",
 "/": "711dc84571385f9de79a9eac67ca7753",
-"main.dart.js": "ed1a737927fe9775b551fe32f4b0d7dc",
+"main.dart.js": "6d6d57e51dd2e35b195725ce76e3e4ce",
 "manifest.json": "f60f2efa5a358a581e2692af4ff45bea"
 };
 
@@ -25,7 +26,7 @@ const CORE = [
   "/",
 "main.dart.js",
 "index.html",
-"assets/LICENSE",
+"assets/NOTICES",
 "assets/AssetManifest.json",
 "assets/FontManifest.json"];
 
@@ -107,7 +108,7 @@ self.addEventListener("fetch", (event) => {
   if (event.request.url == origin || event.request.url.startsWith(origin + '/#')) {
     key = '/';
   }
-  // If the URL is not the the RESOURCE list, skip the cache.
+  // If the URL is not the RESOURCE list, skip the cache.
   if (!RESOURCES[key]) {
     return event.respondWith(fetch(event.request));
   }
@@ -130,11 +131,11 @@ self.addEventListener("fetch", (event) => {
 self.addEventListener('message', (event) => {
   // SkipWaiting can be used to immediately activate a waiting service worker.
   // This will also require a page refresh triggered by the main worker.
-  if (event.message == 'skipWaiting') {
+  if (event.data === 'skipWaiting') {
     return self.skipWaiting();
   }
 
-  if (event.message = 'downloadOffline') {
+  if (event.message === 'downloadOffline') {
     downloadOffline();
   }
 });
@@ -154,8 +155,8 @@ async function downloadOffline() {
   }
   for (var resourceKey in Object.keys(RESOURCES)) {
     if (!currentContent[resourceKey]) {
-      resources.add(resourceKey);
+      resources.push(resourceKey);
     }
   }
-  return Cache.addAll(resources);
+  return contentCache.addAll(resources);
 }
