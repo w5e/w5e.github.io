@@ -5,8 +5,8 @@
   },
   "github": {
     "url": "https://github.com/w5e",
-    "iconUrl": "icons/GitHub-Mark-Light-32px.png",
-    "OriginalIconUrl": "https://gitee.com/w5e/w5e/raw/master/images/github/GitHub-Mark-Light-32px.png"
+    "iconPath": "icons/GitHub-Mark-Light-32px.png",
+    "iconUrl": "https://gitee.com/w5e/w5e/raw/master/images/github/GitHub-Mark-Light-32px.png"
   },
-  "copyright": "w5e.me 版权所有"
+  "copyright": "w5e.me"
 }
