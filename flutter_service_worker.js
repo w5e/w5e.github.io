@@ -8,15 +8,15 @@ const RESOURCES = {
 "assets/assets/main.json": "9bade506c4db25142a66993e480a9811",
 "assets/assets/main_links.json": "34b7c65ee24a386b13a1f1759e8cda70",
 "assets/FontManifest.json": "7b2a36307916a9721811788013e65289",
-"assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
-"assets/NOTICES": "5d18c09fdd83f436e099f5b47cccc6ae",
+"assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
+"assets/NOTICES": "eb6375869848289489f97afe7ce56fb7",
 "favicon.png": "b831d7d6c4f56196d7ea7a07850505a0",
 "icons/GitHub-Mark-Light-32px.png": "d56df49a807a9fd06eb1667a84d3810e",
 "icons/Icon-192.png": "76415aee32fffe670f6166af526d45b8",
 "icons/Icon-512.png": "42711a96734ab173a5653b87d45c814f",
-"index.html": "2774df29959a6d27c1bc2bb92e1e7287",
-"/": "2774df29959a6d27c1bc2bb92e1e7287",
-"main.dart.js": "bb6592be8c94e5053bbabe8a5849f7af",
+"index.html": "0386a5f3480b9ee094cd6b7244bf0a3d",
+"/": "0386a5f3480b9ee094cd6b7244bf0a3d",
+"main.dart.js": "d57744084fc958d5ec8bb785d609145b",
 "manifest.json": "f60f2efa5a358a581e2692af4ff45bea",
 "version.json": "929485a5232020a86d15acf20f6c1d39"
 };
@@ -36,7 +36,7 @@ self.addEventListener("install", (event) => {
   return event.waitUntil(
     caches.open(TEMP).then((cache) => {
       return cache.addAll(
-        CORE.map((value) => new Request(value + '?revision=' + RESOURCES[value], {'cache': 'reload'})));
+        CORE.map((value) => new Request(value, {'cache': 'reload'})));
     })
   );
 });
