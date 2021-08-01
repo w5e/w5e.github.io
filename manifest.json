@@ -1,11 +1,11 @@
 {
-    "name": "w5eme",
-    "short_name": "w5eme",
+    "name": "w5e",
+    "short_name": "w",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "w5e.me",
+    "description": "w5e",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
